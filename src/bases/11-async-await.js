@@ -3,7 +3,9 @@
 const getImage = async () =>{ // async indica que la función es asíncrona y que retorna una promesa
 
     try {
-    const apiKey ='BKRRgbEFRufs59pqO4hNcR9my8T5KKjm';
+    // llamo la api de Giphy para no dejar expuesta la API KEY en el código 
+    // la cual se encuentra en el archivo .env y se accede a ella con process.env.REACT_APP_API_KEY
+    const apiKey =process.env.REACT_APP_API_KEY; //API KEY de Giphy 
     const resp = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`); //await indica que la función debe esperar a que la promesa se resuelva
     const {data} = await resp.json();// await indica que la función debe esperar a que la promesa se resuelva 
 
